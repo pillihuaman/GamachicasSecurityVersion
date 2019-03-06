@@ -25,12 +25,10 @@ public class Imagen implements Serializable {
 
 	private int idclothing;
 
-	private int idusercreate;
-
 	@Lob
 	private byte[] imagendata;
 
-	private String position4d;
+	private String name;
 
 	@Column(name="STATUS")
 	private byte status;
@@ -74,14 +72,6 @@ public class Imagen implements Serializable {
 		this.idclothing = idclothing;
 	}
 
-	public int getIdusercreate() {
-		return this.idusercreate;
-	}
-
-	public void setIdusercreate(int idusercreate) {
-		this.idusercreate = idusercreate;
-	}
-
 	public byte[] getImagendata() {
 		return this.imagendata;
 	}
@@ -90,12 +80,12 @@ public class Imagen implements Serializable {
 		this.imagendata = imagendata;
 	}
 
-	public String getPosition4d() {
-		return this.position4d;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setPosition4d(String position4d) {
-		this.position4d = position4d;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public byte getStatus() {
