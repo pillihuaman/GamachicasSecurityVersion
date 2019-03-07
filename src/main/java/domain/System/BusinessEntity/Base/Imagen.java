@@ -31,7 +31,7 @@ public class Imagen implements Serializable {
 	private String name;
 
 	@Column(name="STATUS")
-	private byte status;
+	private boolean status;
 
 	private Timestamp updatedate;
 
@@ -88,11 +88,11 @@ public class Imagen implements Serializable {
 		this.name = name;
 	}
 
-	public byte getStatus() {
+	public boolean getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(byte status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 

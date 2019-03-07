@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import domain.System.BusinessEntity.ViewStockBE;
 import domain.System.BusinessEntity.Base.Imagen;
+import model.system.repository.stockClothes;
 
 @Controller("/Imagen")
 public class ImagenController {
@@ -22,9 +24,13 @@ public class ImagenController {
 	   ModelMap model) {
          int idimagen=Imagen.getIdimagen();
          byte[] img= Imagen.getImagendata();
-//	      model.addAttribute("name", student.getName());
-//	      model.addAttribute("age", student.getAge());
-//	      model.addAttribute("id", student.getId());
+
+     	ViewStockBE objs= new ViewStockBE();
+    	stockClothes stockClothes= new stockClothes();
+    	stockClothes.getViewStock(objs);
+         
+         
+         
 		    return "addImagen";
 	      
 	   }
