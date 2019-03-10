@@ -1,269 +1,172 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain.System.BusinessEntity.Base;
 
 import java.io.Serializable;
+import javax.persistence.*;
 import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
+import java.sql.Timestamp;
+
 
 /**
- *
- * @author zarmir
+ * The persistent class for the Detailtemptpay database table.
+ * 
  */
 @Entity
-@Table(name = "DETAILTEMPTPAY")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Detailtemptpay.findAll", query = "SELECT d FROM Detailtemptpay d"),
-    @NamedQuery(name = "Detailtemptpay.findByIddetailtemptpay", query = "SELECT d FROM Detailtemptpay d WHERE d.iddetailtemptpay = :iddetailtemptpay"),
-    @NamedQuery(name = "Detailtemptpay.findByIdclothingline", query = "SELECT d FROM Detailtemptpay d WHERE d.idclothingline = :idclothingline"),
-    @NamedQuery(name = "Detailtemptpay.findByIdclothing", query = "SELECT d FROM Detailtemptpay d WHERE d.idclothing = :idclothing"),
-    @NamedQuery(name = "Detailtemptpay.findByIdcolor", query = "SELECT d FROM Detailtemptpay d WHERE d.idcolor = :idcolor"),
-    @NamedQuery(name = "Detailtemptpay.findByIddescription", query = "SELECT d FROM Detailtemptpay d WHERE d.iddescription = :iddescription"),
-    @NamedQuery(name = "Detailtemptpay.findByPrice", query = "SELECT d FROM Detailtemptpay d WHERE d.price = :price"),
-    @NamedQuery(name = "Detailtemptpay.findByIdvaucher", query = "SELECT d FROM Detailtemptpay d WHERE d.idvaucher = :idvaucher"),
-    @NamedQuery(name = "Detailtemptpay.findByTotalprice", query = "SELECT d FROM Detailtemptpay d WHERE d.totalprice = :totalprice"),
-    @NamedQuery(name = "Detailtemptpay.findByTotalitem", query = "SELECT d FROM Detailtemptpay d WHERE d.totalitem = :totalitem"),
-    @NamedQuery(name = "Detailtemptpay.findByDescription", query = "SELECT d FROM Detailtemptpay d WHERE d.description = :description"),
-    @NamedQuery(name = "Detailtemptpay.findByIdstatus", query = "SELECT d FROM Detailtemptpay d WHERE d.idstatus = :idstatus"),
-    @NamedQuery(name = "Detailtemptpay.findByCreatedate", query = "SELECT d FROM Detailtemptpay d WHERE d.createdate = :createdate"),
-    @NamedQuery(name = "Detailtemptpay.findByUpdatedate", query = "SELECT d FROM Detailtemptpay d WHERE d.updatedate = :updatedate"),
-    @NamedQuery(name = "Detailtemptpay.findByStatus", query = "SELECT d FROM Detailtemptpay d WHERE d.status = :status"),
-    @NamedQuery(name = "Detailtemptpay.findByIdusercreate", query = "SELECT d FROM Detailtemptpay d WHERE d.idusercreate = :idusercreate")})
+@NamedQuery(name="Detailtemptpay.findAll", query="SELECT d FROM Detailtemptpay d")
 public class Detailtemptpay implements Serializable {
-    private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "IDDETAILTEMPTPAY")
-    private BigDecimal iddetailtemptpay;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "IDCLOTHINGLINE")
-    private BigInteger idclothingline;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "IDCLOTHING")
-    private BigInteger idclothing;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "IDCOLOR")
-    private BigInteger idcolor;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "IDDESCRIPTION")
-    private BigInteger iddescription;
-    @Column(name = "PRICE")
-    private BigInteger price;
-    @Column(name = "IDVAUCHER")
-    private BigInteger idvaucher;
-    @Column(name = "TOTALPRICE")
-    private BigInteger totalprice;
-    @Column(name = "TOTALITEM")
-    private BigInteger totalitem;
-    @Size(max = 200)
-    @Column(name = "DESCRIPTION")
-    private String description;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "IDSTATUS")
-    private BigInteger idstatus;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "CREATEDATE")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdate;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "UPDATEDATE")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updatedate;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "STATUS")
-    private short status;
-    @Column(name = "IDUSERCREATE")
-    private BigInteger idusercreate;
+	private static final long serialVersionUID = 1L;
 
-    public Detailtemptpay() {
-    }
+	@Id
+	private int idDetailtemptpay;
 
-    public Detailtemptpay(BigDecimal iddetailtemptpay) {
-        this.iddetailtemptpay = iddetailtemptpay;
-    }
+	private Timestamp createdate;
 
-    public Detailtemptpay(BigDecimal iddetailtemptpay, BigInteger idclothingline, BigInteger idclothing, BigInteger idcolor, BigInteger iddescription, BigInteger idstatus, Date createdate, Date updatedate, short status) {
-        this.iddetailtemptpay = iddetailtemptpay;
-        this.idclothingline = idclothingline;
-        this.idclothing = idclothing;
-        this.idcolor = idcolor;
-        this.iddescription = iddescription;
-        this.idstatus = idstatus;
-        this.createdate = createdate;
-        this.updatedate = updatedate;
-        this.status = status;
-    }
+	private String description;
 
-    public BigDecimal getIddetailtemptpay() {
-        return iddetailtemptpay;
-    }
+	private BigDecimal idclothing;
 
-    public void setIddetailtemptpay(BigDecimal iddetailtemptpay) {
-        this.iddetailtemptpay = iddetailtemptpay;
-    }
+	private BigDecimal idclothingline;
 
-    public BigInteger getIdclothingline() {
-        return idclothingline;
-    }
+	private BigDecimal idcolor;
 
-    public void setIdclothingline(BigInteger idclothingline) {
-        this.idclothingline = idclothingline;
-    }
+	private BigDecimal iddescription;
 
-    public BigInteger getIdclothing() {
-        return idclothing;
-    }
+	private BigDecimal idstatus;
 
-    public void setIdclothing(BigInteger idclothing) {
-        this.idclothing = idclothing;
-    }
+	private BigDecimal idusercreate;
 
-    public BigInteger getIdcolor() {
-        return idcolor;
-    }
+	private BigDecimal idvaucher;
 
-    public void setIdcolor(BigInteger idcolor) {
-        this.idcolor = idcolor;
-    }
+	private BigDecimal price;
 
-    public BigInteger getIddescription() {
-        return iddescription;
-    }
+	private Object status;
 
-    public void setIddescription(BigInteger iddescription) {
-        this.iddescription = iddescription;
-    }
+	private BigDecimal totalitem;
 
-    public BigInteger getPrice() {
-        return price;
-    }
+	private BigDecimal totalprice;
 
-    public void setPrice(BigInteger price) {
-        this.price = price;
-    }
+	private Timestamp updatedate;
 
-    public BigInteger getIdvaucher() {
-        return idvaucher;
-    }
+	public Detailtemptpay() {
+	}
 
-    public void setIdvaucher(BigInteger idvaucher) {
-        this.idvaucher = idvaucher;
-    }
+	public int getIdDetailtemptpay() {
+		return this.idDetailtemptpay;
+	}
 
-    public BigInteger getTotalprice() {
-        return totalprice;
-    }
+	public void setIdDetailtemptpay(int idDetailtemptpay) {
+		this.idDetailtemptpay = idDetailtemptpay;
+	}
 
-    public void setTotalprice(BigInteger totalprice) {
-        this.totalprice = totalprice;
-    }
+	public Timestamp getCreatedate() {
+		return this.createdate;
+	}
 
-    public BigInteger getTotalitem() {
-        return totalitem;
-    }
+	public void setCreatedate(Timestamp createdate) {
+		this.createdate = createdate;
+	}
 
-    public void setTotalitem(BigInteger totalitem) {
-        this.totalitem = totalitem;
-    }
+	public String getDescription() {
+		return this.description;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public BigDecimal getIdclothing() {
+		return this.idclothing;
+	}
 
-    public BigInteger getIdstatus() {
-        return idstatus;
-    }
+	public void setIdclothing(BigDecimal idclothing) {
+		this.idclothing = idclothing;
+	}
 
-    public void setIdstatus(BigInteger idstatus) {
-        this.idstatus = idstatus;
-    }
+	public BigDecimal getIdclothingline() {
+		return this.idclothingline;
+	}
 
-    public Date getCreatedate() {
-        return createdate;
-    }
+	public void setIdclothingline(BigDecimal idclothingline) {
+		this.idclothingline = idclothingline;
+	}
 
-    public void setCreatedate(Date createdate) {
-        this.createdate = createdate;
-    }
+	public BigDecimal getIdcolor() {
+		return this.idcolor;
+	}
 
-    public Date getUpdatedate() {
-        return updatedate;
-    }
+	public void setIdcolor(BigDecimal idcolor) {
+		this.idcolor = idcolor;
+	}
 
-    public void setUpdatedate(Date updatedate) {
-        this.updatedate = updatedate;
-    }
+	public BigDecimal getIddescription() {
+		return this.iddescription;
+	}
 
-    public short getStatus() {
-        return status;
-    }
+	public void setIddescription(BigDecimal iddescription) {
+		this.iddescription = iddescription;
+	}
 
-    public void setStatus(short status) {
-        this.status = status;
-    }
+	public BigDecimal getIdstatus() {
+		return this.idstatus;
+	}
 
-    public BigInteger getIdusercreate() {
-        return idusercreate;
-    }
+	public void setIdstatus(BigDecimal idstatus) {
+		this.idstatus = idstatus;
+	}
 
-    public void setIdusercreate(BigInteger idusercreate) {
-        this.idusercreate = idusercreate;
-    }
+	public BigDecimal getIdusercreate() {
+		return this.idusercreate;
+	}
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (iddetailtemptpay != null ? iddetailtemptpay.hashCode() : 0);
-        return hash;
-    }
+	public void setIdusercreate(BigDecimal idusercreate) {
+		this.idusercreate = idusercreate;
+	}
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Detailtemptpay)) {
-            return false;
-        }
-        Detailtemptpay other = (Detailtemptpay) object;
-        if ((this.iddetailtemptpay == null && other.iddetailtemptpay != null) || (this.iddetailtemptpay != null && !this.iddetailtemptpay.equals(other.iddetailtemptpay))) {
-            return false;
-        }
-        return true;
-    }
+	public BigDecimal getIdvaucher() {
+		return this.idvaucher;
+	}
 
-    @Override
-    public String toString() {
-        return "Domain.System.BusinessEntity.Base.Detailtemptpay[ iddetailtemptpay=" + iddetailtemptpay + " ]";
-    }
-    
+	public void setIdvaucher(BigDecimal idvaucher) {
+		this.idvaucher = idvaucher;
+	}
+
+	public BigDecimal getPrice() {
+		return this.price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public Object getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(Object status) {
+		this.status = status;
+	}
+
+	public BigDecimal getTotalitem() {
+		return this.totalitem;
+	}
+
+	public void setTotalitem(BigDecimal totalitem) {
+		this.totalitem = totalitem;
+	}
+
+	public BigDecimal getTotalprice() {
+		return this.totalprice;
+	}
+
+	public void setTotalprice(BigDecimal totalprice) {
+		this.totalprice = totalprice;
+	}
+
+	public Timestamp getUpdatedate() {
+		return this.updatedate;
+	}
+
+	public void setUpdatedate(Timestamp updatedate) {
+		this.updatedate = updatedate;
+	}
+
 }

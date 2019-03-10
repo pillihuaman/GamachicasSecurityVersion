@@ -18,6 +18,8 @@ public class Imagen implements Serializable {
 	@Id
 	private int idimagen;
 
+	private int countViews;
+
 	private Timestamp createdate;
 
 	@Column(name="DESCRIPTION")
@@ -25,13 +27,18 @@ public class Imagen implements Serializable {
 
 	private int idclothing;
 
-	@Lob
+	private int idclothingline;
+
+	private int idposition;
+
 	private byte[] imagendata;
 
 	private String name;
 
+	private int positionweb;
+
 	@Column(name="STATUS")
-	private boolean status;
+	private Object status;
 
 	private Timestamp updatedate;
 
@@ -46,6 +53,14 @@ public class Imagen implements Serializable {
 
 	public void setIdimagen(int idimagen) {
 		this.idimagen = idimagen;
+	}
+
+	public int getCountViews() {
+		return this.countViews;
+	}
+
+	public void setCountViews(int countViews) {
+		this.countViews = countViews;
 	}
 
 	public Timestamp getCreatedate() {
@@ -72,11 +87,27 @@ public class Imagen implements Serializable {
 		this.idclothing = idclothing;
 	}
 
-	public byte[] getImagendata() {
+	public int getIdclothingline() {
+		return this.idclothingline;
+	}
+
+	public void setIdclothingline(int idclothingline) {
+		this.idclothingline = idclothingline;
+	}
+
+	public int getIdposition() {
+		return this.idposition;
+	}
+
+	public void setIdposition(int idposition) {
+		this.idposition = idposition;
+	}
+
+	public byte[]  getImagendata() {
 		return this.imagendata;
 	}
 
-	public void setImagendata(byte[] imagendata) {
+	public void setImagendata(byte[]  imagendata) {
 		this.imagendata = imagendata;
 	}
 
@@ -88,11 +119,19 @@ public class Imagen implements Serializable {
 		this.name = name;
 	}
 
-	public boolean getStatus() {
+	public int getPositionweb() {
+		return this.positionweb;
+	}
+
+	public void setPositionweb(int positionweb) {
+		this.positionweb = positionweb;
+	}
+
+	public Object getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(boolean status) {
+	public void setStatus(Object status) {
 		this.status = status;
 	}
 

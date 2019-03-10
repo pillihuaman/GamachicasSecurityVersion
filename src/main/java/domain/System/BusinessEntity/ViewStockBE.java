@@ -3,10 +3,31 @@ import domain.System.BusinessEntity.Base.*;
 public class ViewStockBE {
 	private  Clothing  Clothing;
 	   private Color Color;
-	   private Sizes Sizes;
-	   private Clothingline Clothingline;
 
-	    /**
+	   private Clothingline Clothingline;
+	   public Imagen getImagen() {
+		return Imagen;
+	}
+
+	public void setImagen(Imagen imagen) {
+		Imagen = imagen;
+	}
+
+	private  Imagen Imagen;
+	private Test Test;
+
+
+
+
+		public Test getTest() {
+		return Test;
+	}
+
+	public void setTest(Test test) {
+		Test = test;
+	}
+
+		/**
 	     * @return the Clothing
 	     */
 	    public Clothing getClothing() {
@@ -37,16 +58,7 @@ public class ViewStockBE {
 	    /**
 	     * @return the Sizes
 	     */
-	    public Sizes getSizes() {
-	        return Sizes;
-	    }
 
-	    /**
-	     * @param Sizes the Sizes to set
-	     */
-	    public void setSizes(Sizes Sizes) {
-	        this.Sizes = Sizes;
-	    }
 
 	    /**
 	     * @return the Clothingline

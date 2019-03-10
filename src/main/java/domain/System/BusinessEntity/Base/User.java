@@ -6,37 +6,39 @@ import java.sql.Timestamp;
 
 
 /**
- * The persistent class for the parameter database table.
+ * The persistent class for the users database table.
  * 
  */
 @Entity
-@Table(name="parameter")
-@NamedQuery(name="Parameter.findAll", query="SELECT p FROM Parameter p")
-public class Parameter implements Serializable {
+@Table(name="users")
+@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
+public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int idparameter;
+	private int iduser;
 
 	private Timestamp createdate;
 
-	@Column(name="NAME")
+	private String email;
+
 	private String name;
 
-	@Column(name="STATUS")
+	private String password;
+
 	private Object status;
 
 	private Timestamp updatedate;
 
-	public Parameter() {
+	public User() {
 	}
 
-	public int getIdparameter() {
-		return this.idparameter;
+	public int getIduser() {
+		return this.iduser;
 	}
 
-	public void setIdparameter(int idparameter) {
-		this.idparameter = idparameter;
+	public void setIduser(int iduser) {
+		this.iduser = iduser;
 	}
 
 	public Timestamp getCreatedate() {
@@ -47,12 +49,28 @@ public class Parameter implements Serializable {
 		this.createdate = createdate;
 	}
 
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getName() {
 		return this.name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public Object getStatus() {

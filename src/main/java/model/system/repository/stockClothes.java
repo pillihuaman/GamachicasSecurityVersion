@@ -1,6 +1,7 @@
 package model.system.repository;
 import domain.System.BusinessEntity.BusinessLogic.stockClothesBL;
 import domain.System.BusinessEntity.ViewStockBE;
+import domain.System.BusinessEntity.Base.Clothingline;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -12,9 +13,14 @@ import org.springframework.stereotype.Service;
 public class stockClothes implements IstockClothes{
 
     public    List<ViewStockBE> getViewStock(ViewStockBE objs) {
-        ViewStockBE ob= new ViewStockBE();
         stockClothesBL obl= new stockClothesBL();
         return  obl.getStock(objs);
     }
+
+	@Override
+	public  List<Clothingline> ListClothesLine() {
+		return stockClothesBL.ListClothesLine();
+	}
+
     
 }

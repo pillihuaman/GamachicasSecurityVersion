@@ -6,37 +6,37 @@ import java.sql.Timestamp;
 
 
 /**
- * The persistent class for the parameter database table.
+ * The persistent class for the parentMenu database table.
  * 
  */
 @Entity
-@Table(name="parameter")
-@NamedQuery(name="Parameter.findAll", query="SELECT p FROM Parameter p")
-public class Parameter implements Serializable {
+@Table(name="parentMenu")
+@NamedQuery(name="ParentMenu.findAll", query="SELECT p FROM ParentMenu p")
+public class ParentMenu implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int idparameter;
+	private int idparentMenu;
 
 	private Timestamp createdate;
 
-	@Column(name="NAME")
 	private String name;
 
-	@Column(name="STATUS")
+	private String path;
+
 	private Object status;
 
 	private Timestamp updatedate;
 
-	public Parameter() {
+	public ParentMenu() {
 	}
 
-	public int getIdparameter() {
-		return this.idparameter;
+	public int getIdparentMenu() {
+		return this.idparentMenu;
 	}
 
-	public void setIdparameter(int idparameter) {
-		this.idparameter = idparameter;
+	public void setIdparentMenu(int idparentMenu) {
+		this.idparentMenu = idparentMenu;
 	}
 
 	public Timestamp getCreatedate() {
@@ -53,6 +53,14 @@ public class Parameter implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getPath() {
+		return this.path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 
 	public Object getStatus() {

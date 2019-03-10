@@ -11,32 +11,60 @@
 </head>
 
 <body>
-${Mensaje}
   <div class="container">
       <form:form method = "POST" action = "/gamachicas.com.pe/addImagen">
   <fieldset>
     <div id="legend">
       <legend class="">Registrar Informacion de la imagen</legend>
     </div>
+    <div class="alert alert-warning" role="alert">
+ Solo se puede registrar de 1 a 4 imagenes de un solo producto que representan las vistas de !
+ Principal ,atras,Lateral, frontal.
+</div>
     <div class="control-group">
       <!-- Username -->
-      <label class="control-label"  for="username">Nombre de la imagen:</label>
+      <label class="control-label"  for="Nombre">Nombre de la imagen:</label>
       <div class="controls">
-      <form:input path = "name" placeholder="Nombre de la imagen a guardar" class="form-control"/>
+      <form:input path = "Imagen.name" placeholder="Nombre de la imagen a guardar" class="form-control"/>
         <p class="help-block">Nombre de la imagen solo letras</p>
       </div>
     </div>
+       <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="username">Linea de Ropa:</label>
+      <div class="controls">
+       <select name="Clothingline.idclothingline"  class="form-control">
+    <option value="-1">Selecionar..</option>
+    <c:forEach items="${ListClothesLine}" var="item">
+    <option value="<c:out value="${item.idclothingline}" />"><c:out value="${ item.name}" /></option>
+      </c:forEach>
+  </select>
+      </div>
+    </div>
+     <br>
+     <div class="control-group">
+     <label class="control-label">Vista que representa la Imagen</label>
+    <form:textarea path = "Test.idimagen" placeholder="Dreve descripcion de la imagen caracteristicas " class="form-control"/>
+    </div>
+     <br>
+    <div class="control-group">
+      <label class="control-label">Posición en la pagina principal</label>
+      <div class="controls">
+      <input type="number" name="Imagen.positionweb" min="1" max="9000" class="form-control">
+      </div>
+    </div>
+    <br>
     <div class="control-group">
       <label class="control-label">Descripción</label>
       <div class="controls">
-  <form:textarea path = "description" placeholder="Dreve descripcion de la imagen caracteristicas " class="form-control"/>
+  <form:textarea path = "Imagen.description" placeholder="Dreve descripcion de la imagen caracteristicas " class="form-control"/>
       </div>
     </div>
      <br>
        <div class="control-group">
       <label class="control-label">Adjuntar Imagen</label>
       <div class="controls">
-      <input type="file" name="imagendata" id="imagendata">
+      <input type="file" name="Imagen.imagendata"  class="form-control-file" id="Imagen.imagendata">
       </div>
     </div>
  <br>
